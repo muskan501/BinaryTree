@@ -15,11 +15,24 @@ public class BinarySearchTree {
         root = null;  
     } 
     
-    void insert(int data)
-    { 
-     
-    	
-    }
+    void insert(int data) { 
+       root = insert1(root, data); 
+    } 
+      
+    Node insert1(Node root, int data) { 
+        if (root == null) { 
+            root = new Node(data); 
+            return root; 
+        } 
+  
+        if (data < root.data) 
+            root.left = insert1(root.left, data); 
+        else if (data > root.data) 
+            root.right = insert1(root.right, data); 
+  
+        return root; 
+    } 
+
     void inorder()
     {
        inorder1(root);
